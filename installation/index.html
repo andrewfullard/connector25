@@ -214,6 +214,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -224,6 +236,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mesa-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      MESA container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MESA container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-singularityapptainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Singularity/Apptainer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stella-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      STELLA container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STELLA container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -312,6 +409,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mesa-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      MESA container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MESA container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-singularityapptainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Singularity/Apptainer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stella-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      STELLA container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STELLA container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -331,6 +502,60 @@
 
 <h1 id="mesa">MESA</h1>
 <p><a href="https://mesastar.org/">MESA</a> is a versatile open-source 1D stellar evolution code. For the Connector 25 project, we <a href="https://docs.mesastar.org/en/latest/installation.html">install</a> MESA version <a href="https://zenodo.org/records/13353788">24.08.1</a> and MESA SDK version <a href="http://user.astro.wisc.edu/~townsend/static.php?ref=mesasdk">24.7.1/24.10.1/25.3.1 (Linux (Intel/AMD) / Mac OS (Intel) / Mac OS (ARM))</a> for bit-for-bit reproducibility.</p>
+<h2 id="mesa-container">MESA container</h2>
+<h3 id="build">Build</h3>
+<p>We also provide a Docker definitions file to allow the production of a 
+containerized version of MESA using the versions described above. 
+To build the container, <a href="https://docs.docker.com/engine/install/">install Docker</a>.
+Then download the zip for MESA version <a href="https://zenodo.org/records/13353788">24.08.1</a> 
+and run the command <code>sudo docker build -f /path/to/mesa.dockerfile -t mesa-latest .</code> 
+in the same directory as <code>mesa-24.08.1.zip</code>.</p>
+<h3 id="run-with-docker">Run with Docker</h3>
+<p>To run the built container with Docker to check it has built correctly, 
+run <code>sudo docker run -it mesa-latest</code>. This will drop you into a bash prompt. 
+MESA is located in <code>/mesa-24.08.1</code> and the SDK in <code>/opt/mesadsk</code>. 
+Run <code>exit</code> to end the container. </p>
+<p>To use the container to run the MESA step of the Connector with Docker, you will
+need to bind your copy of the Connector repository to the container. Run the
+command <code>sudo docker run -v /path/to/connector25:/connector25-it  mesa-latest</code>. 
+Now the path <code>/connector25</code> within the container prompt will have access to your 
+local copy of the Connector repository.</p>
+<h3 id="run-with-singularityapptainer">Run with Singularity/Apptainer</h3>
+<p>To run the built container on an HPCC you will likely need to use Singularity
+or Apptainer (these are basically the same thing as of March 2025). 
+Pull the container from DockerHub using the command 
+<code>singularity pull docker://mesa-connector</code>.
+Run the container using <code>singularity run mesa-connector-latest</code>. Singularity
+automatically mounts your home directory, so you can navigate to your clone of 
+the Connector repository within the container prompt.</p>
+<h2 id="stella-container">STELLA container</h2>
+<h3 id="run-with-docker_1">Run with Docker</h3>
+<p>Stella is part of the MESA container. </p>
+<h1 id="stir">STIR</h1>
+<h1 id="tardis">TARDIS</h1>
+<p>Standard installation of TARDIS can be accomplished using our locked environment
+file, with instructions <a href="https://tardis-sn.github.io/tardis/installation.html">here</a>. 
+The release of TARDIS used as part of the Connector is <a href="Link to github release">XXXX</a>.</p>
+<h2 id="tardis-container">TARDIS container</h2>
+<h3 id="build_1">Build</h3>
+<p>We also provide a Docker definitions file to allow the production of a 
+containerized version of TARDIS using the version described above. 
+To build the container, <a href="https://docs.docker.com/engine/install/">install Docker</a> and run the command <code>sudo docker build -f /path/to/tardis.dockerfile -t tardis-latest .</code>.</p>
+<h3 id="run-with-docker_2">Run with Docker</h3>
+<p>To run the built container with Docker to check it has built correctly, 
+run <code>sudo docker run -it tardis-latest</code>. This will drop you into a bash prompt. 
+TARDIS is located in <code>/tardis-release-XXXX</code>. Run <code>exit</code> to end the container.</p>
+<p>To use the container to run the TARDIS step of the Connector with Docker, you will
+need to bind your copy of the Connector repository to the container. Run the
+command <code>sudo docker run -v /path/to/connector25:/connector25-it  mesa-latest</code>.</p>
+<h3 id="run-with-singularityapptainer_1">Run with Singularity/Apptainer</h3>
+<p>To run the built container on an HPCC you will likely need to use Singularity
+or Apptainer (these are basically the same thing as of March 2025). 
+Pull the container from DockerHub using the command 
+<code>singularity pull docker://tardis-connector</code>.
+Run the container using <code>singularity run tardis-connector-latest</code>. Singularity
+automatically mounts your home directory, so you can navigate to your clone of 
+the Connector repository within the container prompt.</p>
 
 
 
